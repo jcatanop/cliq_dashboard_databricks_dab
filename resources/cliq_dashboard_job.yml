@@ -22,7 +22,7 @@ resources:
       tasks:
         - task_key: cliq_dashboard_etl
           pipeline_task:
-            pipeline_id: 96db453a-3115-4d8f-a08a-6529d7d71045
+            pipeline_id: ${resources.pipelines.cliq_dashboard_etl.id}
             full_refresh: false
 
       queue:

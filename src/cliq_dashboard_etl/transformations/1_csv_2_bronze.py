@@ -23,7 +23,7 @@ def records_bronze_1():
             INTERVAL DOUBLE
             """
         ) 
-        .csv("/Volumes/cliq_records/jorgeenriquecatano/data-csv/")
+        .csv("/Volumes/{catalog}/{schema}/data-csv/")
         )
     return (
         df
