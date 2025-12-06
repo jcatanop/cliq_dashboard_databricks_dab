@@ -3,7 +3,6 @@
 This repository contains a **Databricks Asset Bundle (DAB)** project designed to process and optimize **check-in and check-out** records from *Cliq*.
 Through a **declarative pipeline**, the project transforms raw data into a clean, reliable dataset ready for use in an **analytical dashboard**.
 
----
 
 ## Key Features
 
@@ -15,7 +14,6 @@ Through a **declarative pipeline**, the project transforms raw data into a clean
 * Reproducible and portable architecture, version-controlled through DAB.
 * Data quality validation using expectations.
 
----
 
 ## Project Architecture
 
@@ -28,7 +26,6 @@ The project leverages essential components from the Databricks ecosystem:
 
 > The repository structure follows recommended practices for DAB-based projects, ensuring consistent deployments across environments.
 
----
 
 ## Dashboard Purpose
 
@@ -39,7 +36,6 @@ The pipeline produces a final table designed to support dashboards that provide:
 * Average working hours per day grouped by week.
 * Total weekly hours worked.
 
----
 
 ## Repository Structure
 
@@ -75,7 +71,6 @@ cliq_dashboard_databricks_dab/
 └── uv.lock
 ```
 
----
 
 ## Using This Project with the CLI
 
@@ -123,7 +118,6 @@ Databricks Workspaces and IDE extensions provide graphical interfaces for intera
    uv run pytest
    ```
 
----
 
 ## Getting Started
 
@@ -148,7 +142,6 @@ If you're developing with an IDE, dependency management uses **uv**:
   uv sync --dev
   ```
 
----
 
 ## Contributing
 
