@@ -8,7 +8,6 @@ from pyspark.sql.functions import current_timestamp
 @dp.table
 @dp.expect("valid_checkout_ck", "NOT isnan(INTERVAL)")
 def records_bronze_1():
-
     df = (
         spark.readStream
         .format("csv") 
@@ -23,7 +22,7 @@ def records_bronze_1():
             INTERVAL DOUBLE
             """
         ) 
-        .csv("/Volumes/{catalog}/{schema}/data-csv/")
+        .csv(f"/Volumes/cliq_records/jorgeenriquecatano/data-csv/")
         )
     return (
         df

@@ -28,6 +28,7 @@ targets:
     variables:
       catalog: cliq_records
       schema: ${workspace.current_user.short_name}
+
   prod:
     mode: production
     workspace:
