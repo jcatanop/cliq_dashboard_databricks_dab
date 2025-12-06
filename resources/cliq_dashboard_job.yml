@@ -1,0 +1,36 @@
+resources:
+  jobs:
+    sample_job:
+      name: cliq_dashboard_job
+      #email_notifications:
+      #  on_failure:
+      #    - your_email@example.com
+
+      trigger:
+        pause_status: UNPAUSED
+        file_arrival:
+          url: /Volumes/${var.catalog}/${var.schema}/data-csv/
+
+      max_concurrent_runs: 4
+
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}
+
+      tasks:
+        - task_key: cliq_dashboard_etl
+          pipeline_task:
+            pipeline_id: 96db453a-3115-4d8f-a08a-6529d7d71045
+            full_refresh: false
+
+      queue:
+        enabled: true
+
+      performance_target: PERFORMANCE_OPTIMIZED
+
+      environments:
+        - environment_key: default
+          spec:
+            environment_version: "2"
