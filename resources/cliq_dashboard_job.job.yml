@@ -20,10 +20,17 @@ resources:
           default: ${var.schema}
 
       tasks:
-        - task_key: cliq_dashboard_etl
+        - task_key: extract_clean
           pipeline_task:
-            pipeline_id: ${resources.pipelines.cliq_dashboard_etl.id}
+            pipeline_id: ${resources.pipelines.extract_clean.id}
             full_refresh: false
+
+        - task_key: hours_by_day
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.hours_by_day.id}
+            full_refresh: false
+          depends_on:
+            - task_key: extract_clean
 
       queue:
         enabled: true
