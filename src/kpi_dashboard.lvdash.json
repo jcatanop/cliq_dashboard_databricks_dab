@@ -1,0 +1,438 @@
+{
+  "datasets": [
+    {
+      "name": "2365bca1",
+      "displayName": "cliq_records_silver",
+      "queryLines": [
+        "SELECT * FROM  shifts_by_day_5 ;"
+      ],
+      "catalog": "cliq_records",
+      "schema": "prod"
+    }
+  ],
+  "pages": [
+    {
+      "name": "66a46e15",
+      "displayName": "Cliq records",
+      "layout": [
+        {
+          "widget": {
+            "name": "5e467126",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2365bca1",
+                  "fields": [
+                    {
+                      "name": "weekly(DATE)",
+                      "expression": "DATE_TRUNC(\"WEEK\", `DATE`)"
+                    },
+                    {
+                      "name": "sum(INTERVAL)",
+                      "expression": "SUM(`INTERVAL`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "x": {
+                  "displayName": "Week",
+                  "fieldName": "weekly(DATE)",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "displayName": "Hours",
+                  "fieldName": "sum(INTERVAL)",
+                  "scale": {
+                    "domain": {
+                      "min": 0
+                    },
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Total Hours by Week"
+              },
+              "version": 3,
+              "widgetType": "bar"
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 9,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "616eb4ef",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2365bca1",
+                  "fields": [
+                    {
+                      "name": "DATE",
+                      "expression": "`DATE`"
+                    },
+                    {
+                      "name": "sum(INTERVAL)",
+                      "expression": "SUM(`INTERVAL`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "label": {
+                  "show": true
+                },
+                "x": {
+                  "fieldName": "DATE",
+                  "scale": {
+                    "type": "temporal"
+                  }
+                },
+                "y": {
+                  "displayName": "Hours / day",
+                  "fieldName": "sum(INTERVAL)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Hours worked by day"
+              },
+              "version": 3,
+              "widgetType": "bar"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 3,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "ce11d7ff",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2365bca1",
+                  "fields": [
+                    {
+                      "name": "weekly(DATE)",
+                      "expression": "DATE_TRUNC(\"WEEK\", `DATE`)"
+                    },
+                    {
+                      "name": "avg(INTERVAL)",
+                      "expression": "AVG(`INTERVAL`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "x": {
+                  "displayName": "Week",
+                  "fieldName": "weekly(DATE)",
+                  "scale": {
+                    "type": "categorical"
+                  }
+                },
+                "y": {
+                  "displayName": "Hours",
+                  "fieldName": "avg(INTERVAL)",
+                  "scale": {
+                    "type": "quantitative"
+                  }
+                }
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Average daily hours by Week"
+              },
+              "version": 3,
+              "widgetType": "bar"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 9,
+            "width": 3,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "054256b8",
+            "multilineTextboxSpec": {
+              "lines": [
+                "# <span style=\"text-align:center;display:block\">Checkin and checkout</span>"
+              ]
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 0,
+            "width": 6,
+            "height": 2
+          }
+        },
+        {
+          "widget": {
+            "name": "52f33a94",
+            "queries": [
+              {
+                "name": "main_query",
+                "query": {
+                  "datasetName": "2365bca1",
+                  "fields": [
+                    {
+                      "name": "UID",
+                      "expression": "`UID`"
+                    },
+                    {
+                      "name": "DATE",
+                      "expression": "`DATE`"
+                    },
+                    {
+                      "name": "INTERVAL",
+                      "expression": "`INTERVAL`"
+                    },
+                    {
+                      "name": "NAME",
+                      "expression": "`NAME`"
+                    }
+                  ],
+                  "disaggregated": true
+                }
+              }
+            ],
+            "spec": {
+              "allowHTMLByDefault": false,
+              "condensed": true,
+              "encodings": {
+                "columns": [
+                  {
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "displayAs": "number",
+                    "fieldName": "UID",
+                    "title": "UID",
+                    "type": "integer",
+                    "visible": true
+                  },
+                  {
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "displayAs": "datetime",
+                    "fieldName": "DATE",
+                    "title": "DATE",
+                    "type": "date",
+                    "visible": true
+                  },
+                  {
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "displayAs": "number",
+                    "fieldName": "INTERVAL",
+                    "title": "INTERVAL",
+                    "type": "float",
+                    "visible": true
+                  },
+                  {
+                    "booleanValues": [
+                      "false",
+                      "true"
+                    ],
+                    "displayAs": "string",
+                    "fieldName": "NAME",
+                    "title": "NAME",
+                    "type": "string",
+                    "visible": true
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Table of cliq records"
+              },
+              "invisibleColumns": [
+                {
+                  "alignContent": "right",
+                  "allowHTML": false,
+                  "allowSearch": false,
+                  "booleanValues": [
+                    "false",
+                    "true"
+                  ],
+                  "displayAs": "number",
+                  "highlightLinks": false,
+                  "imageHeight": "",
+                  "imageTitleTemplate": "{{ @ }}",
+                  "imageUrlTemplate": "{{ @ }}",
+                  "imageWidth": "",
+                  "linkOpenInNewTab": true,
+                  "linkTextTemplate": "{{ @ }}",
+                  "linkTitleTemplate": "{{ @ }}",
+                  "linkUrlTemplate": "{{ @ }}",
+                  "name": "WEEK",
+                  "numberFormat": "0",
+                  "order": 100002,
+                  "preserveWhitespace": false,
+                  "title": "WEEK",
+                  "type": "integer",
+                  "useMonospaceFont": false
+                }
+              ],
+              "itemsPerPage": 25,
+              "paginationSize": "default",
+              "version": 1,
+              "widgetType": "table",
+              "withRowNumber": false
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 15,
+            "width": 6,
+            "height": 6
+          }
+        },
+        {
+          "widget": {
+            "name": "221f404e",
+            "queries": [
+              {
+                "name": "dashboards/01f0b2d232801c7883834af4eaa656bf/datasets/01f0b2d24d991f9bb26e0a26dd621bce_NAME",
+                "query": {
+                  "datasetName": "2365bca1",
+                  "fields": [
+                    {
+                      "name": "NAME",
+                      "expression": "`NAME`"
+                    },
+                    {
+                      "name": "NAME_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "NAME",
+                    "queryName": "dashboards/01f0b2d232801c7883834af4eaa656bf/datasets/01f0b2d24d991f9bb26e0a26dd621bce_NAME"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true
+              },
+              "version": 2,
+              "widgetType": "filter-single-select"
+            }
+          },
+          "position": {
+            "x": 3,
+            "y": 2,
+            "width": 3,
+            "height": 1
+          }
+        },
+        {
+          "widget": {
+            "name": "2dc897b5",
+            "queries": [
+              {
+                "name": "dashboards/01f0b2d232801c7883834af4eaa656bf/datasets/01f0b2d24d991f9bb26e0a26dd621bce_yearly(DATE)",
+                "query": {
+                  "datasetName": "2365bca1",
+                  "fields": [
+                    {
+                      "name": "yearly(DATE)",
+                      "expression": "DATE_TRUNC(\"YEAR\", `DATE`)"
+                    },
+                    {
+                      "name": "yearly(DATE)_associativity",
+                      "expression": "COUNT_IF(`associative_filter_predicate_group`)"
+                    }
+                  ],
+                  "disaggregated": false
+                }
+              }
+            ],
+            "spec": {
+              "encodings": {
+                "fields": [
+                  {
+                    "fieldName": "yearly(DATE)",
+                    "queryName": "dashboards/01f0b2d232801c7883834af4eaa656bf/datasets/01f0b2d24d991f9bb26e0a26dd621bce_yearly(DATE)"
+                  }
+                ]
+              },
+              "frame": {
+                "showTitle": true,
+                "title": "Year"
+              },
+              "version": 2,
+              "widgetType": "filter-single-select"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 2,
+            "width": 3,
+            "height": 1
+          }
+        }
+      ],
+      "pageType": "PAGE_TYPE_CANVAS"
+    },
+    {
+      "name": "80e35924",
+      "displayName": "Global Filters",
+      "pageType": "PAGE_TYPE_GLOBAL_FILTERS"
+    }
+  ],
+  "uiSettings": {
+    "theme": {
+      "widgetHeaderAlignment": "ALIGNMENT_UNSPECIFIED"
+    },
+    "genieSpace": {
+      "isEnabled": false,
+      "enablementMode": "ENABLEMENT_MODE_UNSPECIFIED"
+    },
+    "applyModeEnabled": false
+  }
+}

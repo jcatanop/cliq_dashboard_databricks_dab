@@ -1,0 +1,6 @@
+resources:
+  dashboards:
+    kpi_dashboard:
+      display_name: "KPI dashboard"
+      warehouse_id: fa61acd8d88c488e
+      file_path: ../src/kpi_dashboard.lvdash.json

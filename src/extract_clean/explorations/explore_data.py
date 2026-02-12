@@ -11,10 +11,8 @@
 
 # COMMAND ----------
 
-# MAGIC %python
-# MAGIC df=spark.read.format("csv").option("header","true").option("inferSchema","true").load("/Volumes/cliq_records/prod/data-csv")
-# MAGIC display(df.count())
-
+df=spark.read.format("csv").option("header","true").option("inferSchema","true").load("/Volumes/cliq_records/prod/data-csv")
+display(df.count())
 
 # COMMAND ----------
 

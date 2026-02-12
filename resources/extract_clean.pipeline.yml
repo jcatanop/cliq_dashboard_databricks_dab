@@ -2,16 +2,16 @@
 
 resources:
   pipelines:
-    cliq_dashboard_etl:
-      name: cliq_dashboard_etl
+    extract_clean:
+      name: extract_clean
       catalog: ${var.catalog}
       schema: ${var.schema}
       serverless: true
-      root_path: "../src/cliq_dashboard_etl"
+      root_path: "../src/extract_clean"
 
       libraries:
         - glob:
-            include: ../src/cliq_dashboard_etl/transformations/**
+            include: ../src/extract_clean/transformations/**
 
       environment:
         dependencies:

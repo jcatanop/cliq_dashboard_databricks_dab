@@ -23,7 +23,7 @@ def records_bronze_1():
             """
         ) 
         .csv(f"/Volumes/cliq_records/jorgeenriquecatano/data-csv/")
-        )
+    )
     return (
         df
         .withColumn("ingestion_time", current_timestamp())
