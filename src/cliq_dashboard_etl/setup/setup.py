@@ -1,16 +1,13 @@
-# Setup Catalog and schema
-# 
-# This script is used in development and testing to set up resources used in this pipeline.
-# 
-# IMPORTANT: run this script just before the first time you run the pipeline.
-#
+""" Setup Catalog and schema
+ 
+ This script is used in development and testing to set up resources used in this pipeline.
+ 
+ IMPORTANT: run this script just before the first time you run the pipeline.
+"""
 from databricks.sdk.runtime import spark
 
 catalog_name = "cliq_records"
-#
-# Change the schema name to your own if you want to run this script in development.
-#
-schema_name = "jorgeenriquecatano"
+schema_name = "jorgeenriquecatano" # Change the schema name to your own
 
 spark.sql(f"USE CATALOG {catalog_name};")
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {schema_name};")
